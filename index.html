@@ -1,749 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US Tax With Pavan - US Tax Jobs & Study Materials</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1e40af;
-            --secondary: #0ea5e9;
-            --accent: #f59e0b;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --border: #e2e8f0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark);
-            background: var(--light);
-            line-height: 1.6;
-        }
-
-        /* ==================== NAVBAR ==================== */
-        nav {
-            background: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* ==================== HERO SECTION ==================== */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.8rem 1.8rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        /* ==================== SECTION HEADERS ==================== */
-        .section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--dark);
-        }
-
-        /* ==================== JOBS SECTION ==================== */
-        .jobs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .job-card {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
-            border-color: var(--secondary);
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .job-company {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .job-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .job-badge {
-            background: #dbeafe;
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        /* ==================== MATERIALS SECTION ==================== */
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .material-card {
-            background: white;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .material-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
-        }
-
-        .material-icon {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            font-size: 3rem;
-        }
-
-        .material-content {
-            padding: 1.5rem;
-        }
-
-        .material-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .material-desc {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .material-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        /* ==================== YOUTUBE SECTION ==================== */
-        .youtube-section {
-            background: #f1f5f9;
-        }
-
-        .youtube-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .video-card {
-            background: white;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
-        }
-
-        .video-thumbnail {
-            background: #000;
-            color: white;
-            padding: 3rem;
-            text-align: center;
-            font-size: 2rem;
-        }
-
-        .video-info {
-            padding: 1rem;
-        }
-
-        .video-title {
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        /* ==================== STATS SECTION ==================== */
-        .stats {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            opacity: 0.9;
-        }
-
-        /* ==================== TESTIMONIALS ==================== */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            border-left: 4px solid var(--accent);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .stars {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-text {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        /* ==================== FOOTER ==================== */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .whatsapp-btn {
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-bottom: 1rem;
-        }
-
-        .whatsapp-btn:hover {
-            background: #20ba5a;
-            transform: translateY(-2px);
-        }
-
-        /* ==================== RESPONSIVE ==================== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .section {
-                padding: 2rem 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US Tax With Pavan</title>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--p:#1e40af;--s:#0ea5e9;--a:#f59e0b;--d:#0f172a;--l:#f8fafc;--g:#64748b}body{font-family:Segoe UI;color:var(--d);background:var(--l)}.login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--p),var(--s))}.box{background:white;padding:2.5rem;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.3);width:100%;max-width:420px;margin:2rem}.title{font-size:2rem;font-weight:700;color:var(--d)}.sub{color:var(--g);margin:0.5rem 0 2rem}.form-group{margin-bottom:1.5rem}.form-group label{display:block;margin-bottom:0.5rem;font-weight:600}.form-group input{width:100%;padding:0.9rem;border:2px solid #e2e8f0;border-radius:6px}.form-group input:focus{outline:none;border-color:var(--p)}.btn{width:100%;padding:1rem;font-size:1rem;border:none;border-radius:6px;font-weight:600;background:linear-gradient(135deg,var(--p),var(--s));color:white;cursor:pointer}.error{background:#fee2e2;color:#991b1b;padding:0.8rem;border-radius:6px;margin-bottom:1rem;display:none}.toggle{text-align:center;margin-top:1.5rem;color:var(--g)}.toggle a{color:var(--p);cursor:pointer;font-weight:600}.hidden{display:none}.app{display:none}nav{background:white;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}.logo{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--p),var(--s));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{text-decoration:none;color:var(--d);font-weight:500;cursor:pointer}.user-info{color:var(--g);font-size:0.9rem}.logout{background:var(--a);color:white;padding:0.5rem 1rem;border-radius:4px;border:none;cursor:pointer}.hero{background:linear-gradient(135deg,var(--p),var(--s));color:white;padding:6rem 2rem;text-align:center}.hero h1{font-size:3rem;margin-bottom:1rem}.section{max-width:1200px;margin:0 auto;padding:4rem 2rem}.section-title{font-size:2.5rem;margin-bottom:3rem;text-align:center}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}.card{background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05)}.card-header{background:linear-gradient(135deg,var(--p),var(--s));color:white;padding:1rem;font-weight:700}.card-body{padding:1.5rem}.topic{font-weight:600;margin-bottom:0.5rem}.check{margin-top:1rem}.check input{margin-right:0.5rem;cursor:pointer}.links{margin:2rem 0;text-align:center}.links a{display:inline-block;background:#0088cc;color:white;padding:0.7rem 1.2rem;border-radius:4px;text-decoration:none;margin:0.5rem;font-weight:600}footer{background:var(--d);color:white;padding:2rem;text-align:center}
+</style>
 </head>
 <body>
-    <!-- ==================== NAVBAR ==================== -->
-    <nav>
-        <div class="logo">📊 US Tax With Pavan</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#jobs">Jobs</a></li>
-            <li><a href="#materials">Materials</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero" id="home">
-        <h1>Master US Taxation in 60 Days</h1>
-        <p>Complete guide to US tax forms, jobs, and career growth - From basics to expert level</p>
-        <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'})">Watch Free Videos</button>
-            <button class="btn btn-secondary" onclick="document.getElementById('materials').scrollIntoView({behavior: 'smooth'})">Get Study Materials</button>
-        </div>
-    </section>
+<div class="login" id="auth">
+<div class="box">
+<h2 class="title" id="title">Login</h2>
+<p class="sub">Access your 60-day course</p>
+<div class="error" id="err"></div>
+<form onsubmit="login(event)">
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="email" required placeholder="your@email.com">
+</div>
+<div class="form-group">
+<label>Password</label>
+<input type="password" id="pass" required placeholder="6+ chars" minlength="6">
+</div>
+<button type="submit" class="btn" id="btn">Login</button>
+</form>
+<div class="toggle">
+<span id="tog">No account? <a onclick="toggle()">Sign Up</a></span>
+</div>
+</div>
+</div>
 
-    <!-- ==================== FEATURED VIDEO SECTION ==================== -->
-    <section class="section" style="background: #f8fafc;">
-        <h2 class="section-title">Featured Video 🎬</h2>
-        <div style="max-width: 700px; margin: 0 auto;">
-            <div style="border-radius: 0.75rem; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                <iframe width="100%" height="400" src="https://www.youtube.com/embed/vfsBHT-UI8Q?si=1W3afAaOIXaM_nKd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
+<div class="app" id="app">
+<nav>
+<div class="logo">📊 US Tax With Pavan</div>
+<ul class="nav-links">
+<li><a onclick="to('h')">Home</a></li>
+<li><a onclick="to('c')">Course</a></li>
+<li><a onclick="to('t')">Telegram</a></li>
+<li class="user-info">👤 <span id="mail"></span></li>
+<li><button class="logout" onclick="out()">Logout</button></li>
+</ul>
+</nav>
+<section class="hero" id="h">
+<h1>Master US Taxation in 60 Days</h1>
+<p id="welcome"></p>
+<button class="btn" onclick="to('c')" style="padding:0.8rem 1.8rem;width:auto;background:var(--a)">Start</button>
+</section>
+<section class="section" id="c">
+<h2 class="section-title">60-Day Course 📚</h2>
+<div class="grid" id="grid"></div>
+</section>
+<section class="section" style="background:#f8fafc" id="t">
+<h2 class="section-title">Telegram Channels</h2>
+<div class="links">
+<a href="https://t.me/USTaxJobs">💼 Tax Jobs</a>
+<a href="https://t.me/USTax_technology_Jobs">💻 Software Jobs</a>
+<a href="https://t.me/Degree_Fresher_Jobs">🎓 Fresher</a>
+<a href="https://t.me/B_Tech_Jobs_Fresher_Hyd">🏢 B.Tech</a>
+</div>
+</section>
+<footer><p>&copy; 2026 US Tax With Pavan</p></footer>
+</div>
 
-    <!-- ==================== STATS SECTION ==================== -->
-    <section class="stats" style="padding: 3rem 2rem;">
-        <div class="stat-item">
-            <h3>60</h3>
-            <p>Complete Video Days</p>
-        </div>
-        <div class="stat-item">
-            <h3>7+</h3>
-            <p>Study PDFs</p>
-        </div>
-        <div class="stat-item">
-            <h3>100%</h3>
-            <p>Free on YouTube</p>
-        </div>
-        <div class="stat-item">
-            <h3>Expert</h3>
-            <p>Tax Training</p>
-        </div>
-    </section>
+<script>
+firebase.initializeApp({apiKey:"AIzaSyAZD2xVz-Psu2-RDvxxJd0hRUhTwHn__2A",authDomain:"ustax-with-pavan.firebaseapp.com",projectId:"ustax-with-pavan",storageBucket:"ustax-with-pavan.firebasestorage.app",messagingSenderId:"643308357353",appId:"1:643308357353:web:1fa7dec962064968dd9278"});
+const auth=firebase.auth(),db=firebase.firestore();
+let mode=0,user=null;
+const days=[{t:"What is US Taxation?",d:"Basics"},{t:"Income Types",d:"W-2, 1099"},{t:"Form 1040",d:"Return"},{t:"Filing Status",d:"Single/Married"},{t:"Deductions",d:"Standard/Item"},{t:"Schedule A",d:"Mortgage"},{t:"Self-Employ",d:"Schedule C"},{t:"Capital Gains",d:"Short/Long"},{t:"Business",d:"Expenses"},{t:"Home Office",d:"Method"}];
 
-    <!-- ==================== JOBS SECTION ==================== -->
-    <section class="section" id="jobs">
-        <h2 class="section-title">Latest US Tax Jobs 💼</h2>
-        <p style="text-align: center; color: var(--gray); margin-bottom: 2rem;">Live job listings from LinkedIn - Updated Daily</p>
+auth.onAuthStateChanged(u=>{if(u){user=u;show_app()}else{show_login()}});
 
-        <div style="max-width: 900px; margin: 0 auto; margin-bottom: 3rem;">
-            <div style="background: white; border-radius: 0.75rem; padding: 2rem; border: 2px solid var(--secondary); text-align: center;">
-                <p style="color: var(--gray); margin-bottom: 1rem;">🔄 Our LinkedIn Job Bot automatically pulls and updates the latest tax jobs here</p>
-                <a href="https://www.linkedin.com/jobs/search/?keywords=US%20Tax&location=United%20States" target="_blank" class="btn btn-primary" style="display: inline-block;">View Jobs on LinkedIn →</a>
-            </div>
-        </div>
+function show_login(){document.getElementById('auth').style.display='flex';document.getElementById('app').style.display='none'}
+function show_app(){document.getElementById('auth').style.display='none';document.getElementById('app').style.display='block';document.getElementById('mail').textContent=user.email;document.getElementById('welcome').textContent='Welcome! Track below.';gen();load()}
 
-        <div class="jobs-grid">
-            <div class="job-card">
-                <div class="job-title">Tax Consultant</div>
-                <div class="job-company">Big 4 Firms</div>
-                <div class="job-meta">
-                    <span class="job-badge">Remote</span>
-                    <span class="job-badge">$70K+</span>
-                </div>
-                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">Help clients with tax planning and compliance strategies.</p>
-                <a href="https://www.linkedin.com/jobs/search/?keywords=Tax%20Consultant" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center;">View on LinkedIn →</a>
-            </div>
+function toggle(){mode=!mode;const t=document.getElementById('title'),b=document.getElementById('btn'),tog=document.getElementById('tog');if(mode){t.textContent='Sign Up';b.textContent='Create';tog.innerHTML='Have? <a onclick="toggle()">Login</a>'}else{t.textContent='Login';b.textContent='Login';tog.innerHTML='No? <a onclick="toggle()">Sign Up</a>'}}
 
-            <div class="job-card">
-                <div class="job-title">CPA (Certified Public Accountant)</div>
-                <div class="job-company">Deloitte, EY, KPMG</div>
-                <div class="job-meta">
-                    <span class="job-badge">Hybrid</span>
-                    <span class="job-badge">$75K+</span>
-                </div>
-                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">Provide financial and tax advice to corporate clients.</p>
-                <a href="https://www.linkedin.com/jobs/search/?keywords=CPA" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center;">View on LinkedIn →</a>
-            </div>
+async function login(e){e.preventDefault();const em=document.getElementById('email').value,pw=document.getElementById('pass').value,b=document.getElementById('btn'),er=document.getElementById('err');b.disabled=true;try{if(mode){const r=await auth.createUserWithEmailAndPassword(em,pw);await db.collection('users').doc(r.user.uid).set({email:em,createdAt:new Date(),progress:{}})}else{await auth.signInWithEmailAndPassword(em,pw)}}catch(e){er.style.display='block';er.textContent=e.message;b.disabled=false}}
 
-            <div class="job-card">
-                <div class="job-title">IRS Tax Agent</div>
-                <div class="job-company">Internal Revenue Service</div>
-                <div class="job-meta">
-                    <span class="job-badge">On-Site</span>
-                    <span class="job-badge">$65K+</span>
-                </div>
-                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">Audit and investigate tax returns and accounts.</p>
-                <a href="https://www.linkedin.com/jobs/search/?keywords=IRS%20Tax%20Agent" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center;">View on LinkedIn →</a>
-            </div>
+function gen(){const c=document.getElementById('grid');c.innerHTML='';for(let i=1;i<=60;i++){const d=days[(i-1)%days.length],card=document.createElement('div');card.className='card';card.innerHTML=`<div class="card-header">Day ${i}</div><div class="card-body"><div class="topic">${d.t}</div><div style="color:var(--g);margin-bottom:1rem">${d.d}</div><div style="background:#f0f0f0;height:150px;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem">🎥</div><div class="check"><input type="checkbox" id="d${i}" onchange="save(${i},this.checked)"><label for="d${i}">Done</label></div></div>`;c.appendChild(card)}}
 
-            <div class="job-card">
-                <div class="job-title">Tax Software Developer</div>
-                <div class="job-company">Tech Companies</div>
-                <div class="job-meta">
-                    <span class="job-badge">Remote</span>
-                    <span class="job-badge">$80K+</span>
-                </div>
-                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">Build and maintain tax software applications.</p>
-                <a href="https://www.linkedin.com/jobs/search/?keywords=Tax%20Software" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center;">View on LinkedIn →</a>
-            </div>
-        </div>
+async function save(day,done){if(!user)return;const data={};data['progress.day'+day]=done;await db.collection('users').doc(user.uid).update(data)}
 
-        <div style="text-align: center; margin-top: 3rem; background: #f8fafc; padding: 2rem; border-radius: 0.75rem;">
-            <h3 style="color: var(--primary); margin-bottom: 1rem;">📱 Join Our Telegram Job Communities</h3>
-            <p style="color: var(--gray); margin-bottom: 1.5rem;">Get real-time job notifications directly on your phone</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                <a href="https://t.me/USTaxJobs" target="_blank" class="btn btn-secondary" style="display: inline-block;">US Tax Jobs</a>
-                <a href="https://t.me/USTax_technology_Jobs" target="_blank" class="btn btn-secondary" style="display: inline-block;">Tax Software Jobs</a>
-                <a href="https://t.me/Degree_Fresher_Jobs" target="_blank" class="btn btn-secondary" style="display: inline-block;">Fresher Jobs</a>
-                <a href="https://t.me/B_Tech_Jobs_Fresher_Hyd" target="_blank" class="btn btn-secondary" style="display: inline-block;">B.Tech Jobs (Hyd)</a>
-            </div>
-        </div>
-    </section>
+async function load(){if(!user)return;const doc=await db.collection('users').doc(user.uid).get();if(doc.exists&&doc.data().progress){Object.keys(doc.data().progress).forEach(k=>{const n=k.replace('day',''),cb=document.getElementById('d'+n);if(cb)cb.checked=doc.data().progress[k]})}}
 
-<!-- ==================== FREE MATERIALS SECTION ==================== -->
-    <section class="section" id="materials">
-        <h2 class="section-title">Free Study Documents 📄</h2>
-        <p style="text-align: center; color: var(--gray); margin-bottom: 2rem;">Download free PDFs and study materials</p>
-        <div class="materials-grid">
-            <div class="material-card">
-                <div class="material-icon">📋</div>
-                <div class="material-content">
-                    <div class="material-name">US Tax 2025 Complete</div>
-                    <div class="material-desc">Comprehensive guide to US taxation</div>
-                    <div class="material-price">FREE</div>
-                    <button class="btn btn-secondary" style="width: 100%; text-align: center;">Download PDF</button>
-                </div>
-            </div>
-
-            <div class="material-card">
-                <div class="material-icon">📖</div>
-                <div class="material-content">
-                    <div class="material-name">US Tax Notes 2025</div>
-                    <div class="material-desc">Complete taxation notes and concepts</div>
-                    <div class="material-price">FREE</div>
-                    <button class="btn btn-secondary" style="width: 100%; text-align: center;">Download PDF</button>
-                </div>
-            </div>
-
-            <div class="material-card">
-                <div class="material-icon">📚</div>
-                <div class="material-content">
-                    <div class="material-name">Taxation Notes Book Part 1</div>
-                    <div class="material-desc">In-depth taxation theory and practice</div>
-                    <div class="material-price">FREE</div>
-                    <button class="btn btn-secondary" style="width: 100%; text-align: center;">Download PDF</button>
-                </div>
-            </div>
-
-            <div class="material-card">
-                <div class="material-icon">📑</div>
-                <div class="material-content">
-                    <div class="material-name">Day 1 Complete Materials</div>
-                    <div class="material-desc">Complete notes, slides, and scripts</div>
-                    <div class="material-price">FREE</div>
-                    <button class="btn btn-secondary" style="width: 100%; text-align: center;">Download PDF</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PREMIUM MATERIALS SECTION ==================== -->
-    <section class="section" style="background: #f8fafc;">
-        <h2 class="section-title">Premium Study Materials 📚</h2>
-        <div class="materials-grid">
-            <div class="material-card">
-                <div class="material-icon">📚</div>
-                <div class="material-content">
-                    <div class="material-name">US Tax 2025 Complete</div>
-                    <div class="material-desc">Comprehensive guide covering all US tax forms and procedures</div>
-                    <div class="material-price">₹199</div>
-                    <button class="btn btn-primary" style="width: 100%; text-align: center;">Buy Now</button>
-                </div>
-            </div>
-
-            <div class="material-card">
-                <div class="material-icon">📖</div>
-                <div class="material-content">
-                    <div class="material-name">Taxation Notes Book</div>
-                    <div class="material-desc">In-depth notes covering Part 1 of US taxation</div>
-                    <div class="material-price">₹199</div>
-                    <button class="btn btn-primary" style="width: 100%; text-align: center;">Buy Now</button>
-                </div>
-            </div>
-
-            <div class="material-card">
-                <div class="material-icon">📑</div>
-                <div class="material-content">
-                    <div class="material-name">Day 1 Complete Bundle</div>
-                    <div class="material-desc">Complete + Printouts + Scripts + Slides for Day 1</div>
-                    <div class="material-price">₹99</div>
-                    <button class="btn btn-primary" style="width: 100%; text-align: center;">Buy Now</button>
-                </div>
-            </div>
-
-            <div class="material-card">
-                <div class="material-icon">🎓</div>
-                <div class="material-content">
-                    <div class="material-name">All 60 Days Bundle</div>
-                    <div class="material-desc">Complete 60-day tax course materials + PDFs</div>
-                    <div class="material-price">₹499</div>
-                    <button class="btn btn-secondary" style="width: 100%; text-align: center;">Buy Now</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== YOUTUBE SECTION ==================== -->
-    <section class="section youtube-section" id="courses">
-        <h2 class="section-title">Free YouTube Courses 🎥</h2>
-        <p style="text-align: center; color: var(--gray); margin-bottom: 2rem;">60 complete days of US taxation training - All FREE on YouTube</p>
-        <div class="youtube-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">▶️</div>
-                <div class="video-info">
-                    <div class="video-title">Video 1</div>
-                    <p style="color: var(--gray); font-size: 0.9rem;">Tax Foundations & Basics</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">▶️</div>
-                <div class="video-info">
-                    <div class="video-title">Video 2</div>
-                    <p style="color: var(--gray); font-size: 0.9rem;">Income & Deductions</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">▶️</div>
-                <div class="video-info">
-                    <div class="video-title">Video 3</div>
-                    <p style="color: var(--gray); font-size: 0.9rem;">Tax Filing Process</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">▶️</div>
-                <div class="video-info">
-                    <div class="video-title">Video 4</div>
-                    <p style="color: var(--gray); font-size: 0.9rem;">Business Taxes</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">▶️</div>
-                <div class="video-info">
-                    <div class="video-title">Video 5</div>
-                    <p style="color: var(--gray); font-size: 0.9rem;">Advanced Topics</p>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">▶️</div>
-                <div class="video-info">
-                    <div class="video-title">Video 6</div>
-                    <p style="color: var(--gray); font-size: 0.9rem;">Expert Training</p>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="https://www.youtube.com/@ustaxwithpavan5" target="_blank" class="btn btn-primary">Watch All Videos on YouTube →</a>
-        </div>
-    </section>
-
-    <!-- ==================== ABOUT PAVAN SECTION ==================== -->
-    <section class="section" style="background: #f8fafc;">
-        <h2 class="section-title">Meet Your Instructor 👋</h2>
-        <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 0.75rem; padding: 2rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <img src="https://via.placeholder.com/200x200?text=Pavan+Photo" alt="Pavan" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--secondary);">
-            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Pavan Kumar</h3>
-            <p style="color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">US Tax Expert & Educator</p>
-            <p style="color: var(--gray); line-height: 1.8;">
-                With years of experience in US taxation, I've created a comprehensive 60-day course to help you master tax forms, understand complex concepts, and launch your career in taxation. All videos are free on YouTube - join thousands of students learning from my channel.
-            </p>
-            <a href="https://www.youtube.com/@ustaxwithpavan5" target="_blank" class="btn btn-secondary" style="margin-top: 1rem;">Subscribe to Channel →</a>
-        </div>
-    </section>
-
-    <!-- ==================== TESTIMONIALS SECTION ==================== -->
-    <section class="section">
-        <h2 class="section-title">What Our Students Say ⭐</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <div class="testimonial-text">"Amazing courses! I got a tax consultant job in just 2 months. Highly recommended!"</div>
-                <div class="testimonial-author">- Rajesh Kumar</div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <div class="testimonial-text">"The study materials are comprehensive and easy to understand. Best investment!"</div>
-                <div class="testimonial-author">- Priya Singh</div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <div class="testimonial-text">"Clear explanations, practical examples, and real job opportunities. Absolutely loved it!"</div>
-                <div class="testimonial-author">- Amit Patel</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer id="contact">
-        <div class="footer-content">
-            <h2 style="margin-bottom: 1rem;">📊 US Tax With Pavan</h2>
-            <p style="margin-bottom: 1.5rem;">Your complete guide to US taxation and tax careers</p>
-
-            <a href="https://chat.whatsapp.com/EGGd2iin77R2G4szMLNzyz" target="_blank" class="whatsapp-btn">
-                💬 Join WhatsApp Community
-            </a>
-
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#jobs">Jobs</a>
-                <a href="#materials">Materials</a>
-                <a href="#courses">Courses</a>
-                <a href="mailto:a.pavankumar144@gmail.com">Email Us</a>
-            </div>
-
-            <p style="border-top: 1px solid #334155; padding-top: 1rem; color: #94a3b8;">
-                © 2024 US Tax With Pavan. All rights reserved. | Designed with ❤️
-            </p>
-        </div>
-    </footer>
+function to(id){const m={'h':'h','c':'c','t':'t'};document.getElementById(m[id])?.scrollIntoView({behavior:'smooth'})}
+async function out(){await auth.signOut()}
+</script>
 </body>
 </html>
